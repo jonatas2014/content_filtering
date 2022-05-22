@@ -16,13 +16,17 @@ dataset: https://github.com/mdeff/fma
 ## REQUISITOS
 
 Python3 
+
 NodeJS
+
 NPM
 
 ## INSTRUÇÕES (executar os comandos na raiz do projeto na ordem apresentada)
 Cada comando deve ser executado em uma instância própria do terminal
 
 ./starter.sh
+
 ./starter-front.sh
+
 
 Após finalizar a execução basta acessar http://localhost:4200/ no navegador
