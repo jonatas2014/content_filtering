@@ -1,0 +1,37 @@
+.container-fluid {
+  .row {
+    height: 100vh;
+
+    .col-6 {
+      form {
+        padding: 5rem;
+
+        h3 {
+          margin-top: 2rem;
+        }
+
+        input {
+          margin-bottom: 1rem;
+        }
+
+        .form-label {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    .recomendations {
+      background-color: blueviolet;
+      padding: 5rem;
+
+      h1 {
+        color: white;
+        margin-bottom: 3rem;
+      }
+
+      h4 {
+          color: white;
+      }
+    }
+  }
+}
