@@ -1,5 +1,6 @@
 from math import sqrt
 
+# sample data
 musics = {"Dr Dog/Fate": {"piano": 2.5, "vocals": 4, "beat": 3.5, "blues": 3, "guitar": 5, "backup vocals": 4, "rap": 1},
          "Phoenix/Lisztomania": {"piano": 2, "vocals": 5, "beat": 5, "blues": 3, "guitar": 2, "backup vocals": 1, "rap": 1},
          "Heartless Bastards/Out at Sea": {"piano": 1, "vocals": 5, "beat": 4, "blues": 2, "guitar": 4, "backup vocals": 1, "rap": 1},
@@ -17,9 +18,9 @@ def cosseno(music_features_values_1, music_features_values_2):
     ''' 
         This return the cosseno distance between two rows 
         based on their feature values. 
-        The returned value is a value from the interval [0,1],
+        The returned value is a value from the interval [-1,1],
         the nearest from 1 indicate the greater similarity between two
-        rows, the nearest to 0 the poorest their similarity 
+        rows, the nearest to -1 the poorest their similarity 
     '''
 
     numerador = 0
