@@ -2,8 +2,7 @@
   <div class="row">
     <div class="col-6">
       <form [formGroup]="form">
-        <h1>Gerar recomendações para um usuário</h1>
-        <h3>Informe suas músicas preferidas</h3>
+        <h1>Informe suas músicas preferidas</h1>
         <label for="exampleDataList" class="form-label">Buscar músicas:</label>
         <input
           class="form-control"
@@ -21,14 +20,13 @@
           </option>
         </datalist>
         <br />
-        <br />
-        <br />
         <table class="table">
           <thead>
             <tr>
               <th scope="col">#</th>
               <th scope="col">Música</th>
               <th scope="col">Artista</th>
+              <th scope="col"></th>
             </tr>
           </thead>
           <tbody>
@@ -36,9 +34,15 @@
               <th scope="row">{{ i + 1 }}</th>
               <td>{{ song.song }}</td>
               <td>{{ song.artist }}</td>
+              <td>
+                <span class="remove" (click)="songRemoved(i)">Remover</span>
+              </td>
             </tr>
           </tbody>
         </table>
+        <div class="info">
+          <h6>Você pode escolher até 5 músicas</h6>
+        </div>
       </form>
     </div>
     <div class="col-6 recomendations">
@@ -46,7 +50,9 @@
       <ng-container *ngIf="recommended.length; else start">
         <ul>
           <li *ngFor="let song of recommended">
-            <h4><b>{{ song[0] }}</b> - {{ song[1] }}</h4>
+            <h4>
+              <b>{{ song[0] }}</b> - {{ song[1] }}
+            </h4>
           </li>
         </ul>
       </ng-container>

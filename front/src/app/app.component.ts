@@ -70,9 +70,24 @@ export class AppComponent implements OnInit {
   public songSelected(song: any) {
     let obj = this.songs.find((item) => item.song == song);
     if (obj) {
-      this.songsSelected.push(obj);
+      let objAux = this.songsSelected.find((item) => item.song == song);
+      if (!objAux) {
+        this.songsSelected.push(obj);
+        this.getRecommended();
+
+        if (this.songsSelected.length >= 5) {
+          //@ts-ignore
+          this.form.controls.song.disable();
+        }
+      }
       this.form.reset();
-      this.getRecommended();
     }
+  }
+
+  public songRemoved(index: any) {
+    this.songsSelected.splice(index, 1);
+    this.getRecommended();
+    //@ts-ignore
+    this.form.controls.song.enable();
   }
 }

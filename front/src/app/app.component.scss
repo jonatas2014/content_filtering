@@ -30,8 +30,22 @@
       }
 
       h4 {
-          color: white;
+        color: white;
       }
     }
   }
+}
+
+.remove {
+  font-weight: bold;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.75;
+  }
+}
+
+.info {
+  width: 100%;
+  text-align: center;
 }

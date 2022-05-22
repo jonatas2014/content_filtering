@@ -13,7 +13,7 @@ def generate_data():
 
     id_columns = 3
 
-    csv_file = open('dados/music_features_10_samples.csv')
+    csv_file = open('dados/music_profiles.csv')
     csv_reader = csv.reader(csv_file)
     columns = next(csv_reader)
 
@@ -43,7 +43,7 @@ def generate_data():
 
 def get_songs_data():
 
-    csv_file = open('dados/music_features_10_samples.csv')
+    csv_file = open('dados/music_profiles.csv')
     csv_reader = csv.reader(csv_file)
     columns = next(csv_reader)
 
