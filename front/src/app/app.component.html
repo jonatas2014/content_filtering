@@ -1,0 +1,67 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-6">
+      <form [formGroup]="form">
+        <h1>Informe suas músicas preferidas</h1>
+        <label for="exampleDataList" class="form-label">Buscar músicas:</label>
+        <input
+          class="form-control"
+          list="datalistOptions"
+          placeholder="Digite para pesquisar..."
+          formControlName="song"
+          class="form-control"
+          [class.is-invalid]="form.dirty && songErrors"
+          autocomplete="off"
+          (ngModelChange)="songSelected($event)"
+        />
+        <datalist id="datalistOptions">
+          <option *ngFor="let song of songs" value="{{ song.song }}">
+            {{ song.artist }}
+          </option>
+        </datalist>
+        <br />
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Música</th>
+              <th scope="col">Artista</th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let song of songsSelected; let i = index">
+              <th scope="row">{{ i + 1 }}</th>
+              <td>{{ song.song }}</td>
+              <td>{{ song.artist }}</td>
+              <td>
+                <span class="remove" (click)="songRemoved(i)">Remover</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="info">
+          <h6>Você pode escolher até 5 músicas</h6>
+        </div>
+      </form>
+    </div>
+    <div class="col-6 recomendations">
+      <h1>Músicas recomendadas</h1>
+      <ng-container *ngIf="recommended.length; else start">
+        <ul>
+          <li *ngFor="let song of recommended">
+            <h4>
+              <b>{{ song[0] }}</b> - {{ song[1] }}
+            </h4>
+          </li>
+        </ul>
+      </ng-container>
+      <ng-template #start>
+        <h2>
+          Informe pelo menos uma música para receber recomendações
+          personalizadas
+        </h2>
+      </ng-template>
+    </div>
+  </div>
+</div>
